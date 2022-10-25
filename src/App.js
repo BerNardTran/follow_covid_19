@@ -5,13 +5,17 @@ import Summary from "./components/Summary";
 import { getCountries } from "./api";
 import { useCountry } from "./hook";
 const App = () => {
-  // const [countries, setCountries] = useState([]);
-  const {isSuccess, data} = useCountry();
-  console.log(data);
+  const [countries, setCountries] = useState([]);
+  const { isSuccess, data } = useCountry();
+  useEffect(() => {
+    if (isSuccess) {
+      setCountries(data.data);
+    }
+  }, [isSuccess]);
   return (
-    <>{isSuccess &&
-      <CountrySelector countries={data.data}></CountrySelector>
-    }</>
+    <>
+      <CountrySelector countries={countries}></CountrySelector>
+    </>
   );
 };
 
