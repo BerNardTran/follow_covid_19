@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect, useState } from "react";
+import CountrySelector from "./components/CountrySelector";
+import HighLight from "./components/HighLight";
+import Summary from "./components/Summary";
+import { getCountries } from "./api";
+const App = () => {
+  const [countries, setCountries] = useState([]);
+  useEffect(() => {
+    getCountries().then((res) => setCountries(res.data));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CountrySelector countries={countries} />
+      <HighLight />
+      <Summary />
     </div>
   );
-}
+};
 
 export default App;
