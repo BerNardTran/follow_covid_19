@@ -3,17 +3,15 @@ import CountrySelector from "./components/CountrySelector";
 import HighLight from "./components/HighLight";
 import Summary from "./components/Summary";
 import { getCountries } from "./api";
+import { useCountry } from "./hook";
 const App = () => {
-  const [countries, setCountries] = useState([]);
-  useEffect(() => {
-    getCountries().then((res) => setCountries(res.data));
-  }, []);
+  // const [countries, setCountries] = useState([]);
+  const {isSuccess, data} = useCountry();
+  console.log(data);
   return (
-    <div>
-      <CountrySelector countries={countries} />
-      <HighLight />
-      <Summary />
-    </div>
+    <>{isSuccess &&
+      <CountrySelector countries={data.data}></CountrySelector>
+    }</>
   );
 };
 

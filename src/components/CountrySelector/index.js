@@ -21,9 +21,9 @@ const CountrySelector = (props) => {
           id: "country-selector",
         }}
       >
-        {countries.map((country) => {
+        {countries.map((country, index) => {
           return (
-            <option value={country.ISO2.toLowerCase()}>
+            <option value={country.ISO2.toLowerCase()} key={index}>
               {country.Country}
             </option>
           );
