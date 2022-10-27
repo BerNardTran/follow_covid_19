@@ -11,7 +11,6 @@ const Summary = (props) => {
           <LineChart data={report}/>
         </Grid>
         <Grid item sm={4} xs={12}>
-          <p>Khanh dep trai vcl</p>
         </Grid>
       </Grid>
     </>
