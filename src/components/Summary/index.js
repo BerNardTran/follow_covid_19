@@ -1,7 +1,21 @@
+import { Grid } from "@mui/material";
 import React from "react";
+import LineChart from "../Charts/LineChart";
 
-const Summary = () => {
-  return <div>This is Summary </div>;
+const Summary = (props) => {
+  const {report} = props;
+  return (
+    <>
+      <Grid container spacing={3}>
+        <Grid item sm={8} xs={12}>
+          <LineChart data={report}/>
+        </Grid>
+        <Grid item sm={4} xs={12}>
+          <p>Khanh dep trai vcl</p>
+        </Grid>
+      </Grid>
+    </>
+  );
 };
 
 export default Summary;
