@@ -40,7 +40,7 @@ const App = () => {
         value={countrySelectedId}
       ></CountrySelector>
       <HighLight report={report} />
-      <Summary report={report} />
+      <Summary report={report} selectedContryId={countrySelectedId}/>
     </>
   );
 };
